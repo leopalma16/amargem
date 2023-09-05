@@ -127,6 +127,7 @@ body{
     display: flex;
     flex-wrap: wrap;
     padding: 20px 50px;
+    justify-content: space-between;
   }
   footer .bob_contact{
     display: flex;
@@ -153,6 +154,23 @@ body{
   }
   footer .bob_contact span.social i:hover{
     color: white;
+  }
+  footer .leo_contact{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+  }
+  footer .leo_contact svg{
+    fill: var(--primary-color);
+    height: auto;
+    margin-top: 15px;
+    cursor: pointer;
+    transition: ease-in-out 0.5s;
+  }
+  footer .leo_contact svg:hover{
+    fill: white;
   }
   /******************TOP********************/
   .top{
@@ -207,8 +225,8 @@ body{
   flex-wrap: wrap;
   justify-content: center;
  }
+ .about div{max-width: 1000px;}
  .about p{
-  max-width: 1000px;
   width: 100%;
   margin-bottom: 15px;
   text-align: justify;
@@ -340,4 +358,16 @@ body{
   width: 70%;
   text-align: center;
   margin-bottom: 15px;
+}
+@media only screen and (max-width:987px){
+  .portfolio .portfolio_container .pictures .card{
+    width: calc(100% / 2 - 12px);
+    position: relative;
+  }
+}
+@media only screen and (max-width:660px){
+  .portfolio .portfolio_container .pictures .card{
+    width: 100%;
+    position: relative;
+  }
 }

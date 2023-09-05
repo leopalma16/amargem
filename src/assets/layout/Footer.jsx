@@ -1,3 +1,5 @@
+import LogoLpalmaHz from "./LogoLpalmaHz";
+
 const Footer = () => {
   return (
     <footer className="contact">
@@ -16,6 +18,12 @@ const Footer = () => {
           <i className="bi bi-instagram"></i>
           <i className="bi bi-facebook"></i>
         </span>
+      </div>
+      <div className="leo_contact">
+        WebApp developed by:
+        <a href="https://way.leopalma.com" target="blank">
+          <LogoLpalmaHz />
+        </a>
       </div>
     </footer>
   );

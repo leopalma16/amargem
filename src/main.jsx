@@ -5,6 +5,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 
 //routes
 import Home from "./assets/routes/Home";
+import AmargemSingle from "./assets/routes/AmargemSingle";
 
 import {
   createBrowserRouter,
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/:id",
+        element: <AmargemSingle />,
       },
     ],
   },

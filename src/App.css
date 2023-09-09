@@ -371,3 +371,240 @@ body{
     position: relative;
   }
 }
+/*************Amargem Single**************/
+.amargem_single{
+  background-color: var(--secondary-color);
+  min-height: calc(100vh - 150px);
+}
+.single_top{
+  padding-top: 150px;
+  background: rgb(34,68,102);
+  background: linear-gradient(180deg, rgba(34,68,102,1) 0%, rgba(123,175,222,1) 80%);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.single_top h1{
+  color: white;
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+}
+.single_top .breadcrumbs p{
+  color: white;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+.single_top .breadcrumbs p a{
+  color: white;
+  font-weight: bold;
+}
+.amargem_single .single_top img{
+  width: 100%;
+  object-fit: cover;
+  aspect-ratio: 3 / 1;
+}
+/**********Testimonials*************/
+.amargem_single .testimonials{
+  width: 100%;
+  min-height: 100px;
+  background-color: #f4f7fa;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 24px;
+  gap: 24px;
+}
+.amargem_single .testimonials .testimonial_card{
+  width: calc(100% / 3 - 16px);
+  background-color: white;
+  min-height: 30px;
+  border-radius: 12px;
+  box-shadow: #e6eaec 1px 1px 10px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  max-height: 650px;
+  margin-top: 70px;
+}
+.amargem_single .testimonials .testimonial_card .testimonial_author{
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  margin: 0 8%;
+}
+.amargem_single .testimonials .testimonial_card .testimonial_author h6{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 15px;
+  color: var(--primary-color);
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  position: relative;
+  transform: translate(0, -50%);
+}
+.amargem_single .testimonials .testimonial_card .testimonial_author h6 span{
+  text-decoration: none;
+  margin-left: 5px;
+  font-style: normal;
+  font-family: 'Open Sans', sans-serif;
+  color: #bbb;
+  text-transform: capitalize;
+  font-weight: normal;
+  font-size: 0.9rem;
+}
+.amargem_single .testimonials .testimonial_card .testemonial_single_img{
+  width: 110px;
+  height: 110px;
+  align-self: center;
+  position: relative;
+  transform: translate(0, -50%);
+  border-radius: 55px;
+  border: white solid 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: #e6eaec 1px 1px 10px;
+}
+.amargem_single .testimonials .testimonial_card .testemonial_single_img img{
+  width: 92px;
+  height: 92px;
+  border-radius: 46px;
+}
+.amargem_single .testimonials .testimonial_card p{
+  width: calc(100% - 30px);
+  margin: 0 15px;
+  text-align: justify;
+  position: relative;
+  transform: translate(0, -35px);
+  max-height: 400px;
+  overflow: auto;
+  text-indent: 1em;
+}
+.amargem_single .testimonials .testimonial_card p span{
+  font-size: 3.5em;
+  font-family: 'Playfair Display', serif;
+  position: absolute;
+  transform: translate(-35px, -20px);
+  color: var(--primary-color);
+  opacity: 0.5;
+}
+.amargem_single .testimonials .testimonial_card p span:nth-child(2){
+  transform: translate(-24px, -20px);
+}
+.amargem_single .testimonials .testimonial_card h4{
+  text-align: center;
+  margin: 0 15px 20px;
+  color: #4f4f4f;
+  position: relative;
+  top: -30px;
+}
+.amargem_single .testimonials .testimonial_card h6 span{
+  text-decoration: none;
+  margin-left: 5px;
+  font-style: normal;
+  font-family: 'Times New Roman', Times, serif;
+  color: #bbb;
+  text-transform: capitalize;
+}
+/***********Single Portfolio************/
+.amargem_single .single_portfolio{
+  width: 100%;
+  min-height: 100px;
+  background-color: black;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+}
+.amargem_single .single_portfolio .single_portfolio_image{
+  width: 25%;
+  cursor: pointer;
+}
+.amargem_single .single_portfolio .single_portfolio_image img{
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+  height: 100%;
+  width: 100%;
+  transition:ease-in-out 0.5s;
+}
+.amargem_single .single_portfolio .single_portfolio_image img:hover{
+  transform:scale(96%);
+  z-index: 200;
+  opacity: 0.5;
+}
+
+.modal_works{
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: 0.8s;
+  display: none;
+  opacity: 0;
+  z-index: 102;
+}
+.modal_works .modal_works_overlay{
+  background-color: rgba(0, 0, 0, 0.9);
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(15px);
+}
+.modal_works .modal_works_overlay .modal_works_close_btn{
+  position: absolute;
+  right: 35px;
+  top:35px;
+  background-color: var(--secondary-color);
+  padding: 10px 15px;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  border-radius: 12px ;
+  transition: 0.8s;
+}
+.modal_works .modal_works_overlay .modal_works_close_btn:hover{
+  background-color: var(--primary-color);
+}
+.modal_close_opened{
+  opacity: 1 !important;
+  display: block !important;
+}
+.modal_works .modal_works_overlay img{
+  height: auto;
+  width: auto;
+  object-fit: contain;
+  max-width: 100%;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+.modal_works .modal_works_overlay .controls{
+  position: absolute;
+  top: 50%;
+  padding: 0 35px;
+  font-size: 3.5em;
+  transform: translate(0, -50%);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.modal_works .modal_works_overlay .controls i{
+  color: var(--primary-color);
+  cursor: pointer;
+  transition: 0.8s;
+  text-shadow: #555 2px 2px 2px;
+}
+.modal_works .modal_works_overlay .controls i:hover{
+  color: white;
+}
+.modal_works .modal_red_close{
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  z-index: -1;
+}

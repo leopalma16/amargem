@@ -1,7 +1,7 @@
 :root{
   --primary-color:#7bafde;
   --secondary-color:#001c41;
-  --terciary-color:#add;
+  --terciary-color:rgb(170, 201, 221);
   --light-brandcolor:#eff;
   --blue-join:#246;
   --dark-brandcolor:rgb(11, 13, 17);
@@ -146,6 +146,10 @@ body{
   }
   footer .bob_contact span.social{
     gap: 30px;
+  }
+  footer .bob_contact span.social a{
+    color: inherit;
+  text-decoration: inherit; /* no underline */
   }
   footer .bob_contact span.social i{
     font-size: 1.3rem;
@@ -294,6 +298,8 @@ body{
 }
 .portfolio .portfolio_container .pictures .card img{
   max-width: 100%;
+  object-fit: cover;
+  aspect-ratio: 1.5 / 1;
 }
 .portfolio .portfolio_container .pictures .card .card_overlay{
   width: 100%;
@@ -507,6 +513,16 @@ body{
   color: #bbb;
   text-transform: capitalize;
 }
+@media only screen and (max-width:1056px){
+  .amargem_single .testimonials .testimonial_card{
+    width: calc(100% / 2 - 16px);
+  }
+}
+@media only screen and (max-width:770px){
+  .amargem_single .testimonials .testimonial_card{
+    width: 100%;
+  }
+}
 /***********Single Portfolio************/
 .amargem_single .single_portfolio{
   width: 100%;
@@ -607,4 +623,42 @@ body{
   height: 100vh;
   position: absolute;
   z-index: -1;
+}
+@media only screen and (max-width:1056px){
+  .amargem_single .single_portfolio .single_portfolio_image{
+    width: calc(100% / 3);
+  }
+}
+@media only screen and (max-width:770px){
+  .amargem_single .single_portfolio .single_portfolio_image{
+    width: calc(100% / 2);
+  }
+}
+@media only screen and (max-width:512px){
+  .amargem_single .single_portfolio .single_portfolio_image{
+    width: 100%;
+  }
+}
+.amargem_single .amargem_single_controller{
+  width: 100%;
+  background-color: #4f4f4f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.amargem_single .amargem_single_controller button{
+  width: 100%;
+  border: none;
+  line-height: 1.7rem;
+  cursor: pointer;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  transition: 0.6s;
+}
+.amargem_single .amargem_single_controller button:hover{
+  background-color: black;
+  color: white;
+}
+.amargem_single .amargem_single_controller button i{
+  font-size: 0.7rem;
 }

@@ -1,24 +1,61 @@
 import { Link } from "react-router-dom";
-import ImgTop from "./../links/portfolio/portfolio-3.jpg";
+import { animateScroll as scroll } from "react-scroll";
 import TestemonialCard from "../components/TestemonialCard";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-///images
-import Img01 from "./../links/portfolio/portfolio-1.jpg";
-import Img02 from "./../links/portfolio/portfolio-2.jpg";
-import Img03 from "./../links/portfolio/portfolio-3.jpg";
-import Img04 from "./../links/portfolio/portfolio-4.jpg";
-import Img05 from "./../links/portfolio/portfolio-5.jpg";
-import Img06 from "./../links/portfolio/portfolio-6.jpg";
-import Img07 from "./../links/portfolio/portfolio-7.jpg";
-import Img08 from "./../links/portfolio/portfolio-8.jpg";
-import Img09 from "./../links/portfolio/portfolio-9.jpg";
+//Firebase imports
+import { db } from "./../../firebase";
+
 import ModalPic from "../components/ModalPic";
+import AmargemController from "../components/AmargemController";
 
 const AmargemSingle = () => {
   const { id } = useParams();
+  const [peca, setPeca] = useState([]);
   const [indexImg, setIndexImg] = useState();
+  const [imageList, setImageList] = useState([]);
+
+  useEffect(() => {
+    db.collection("amargem")
+      .where("nome", "==", id)
+      .onSnapshot(function (snapshot) {
+        setPeca(
+          snapshot.docs.map(function (document) {
+            return { id: document.id, data: document.data() };
+          })
+        );
+      });
+
+    scroll.scrollToTop();
+
+    function primeiraFuncao() {
+      console.log("Esperou isso");
+    }
+    async function segundaFuncao() {
+      console.log("Iniciou");
+      await primeiraFuncao();
+
+      console.log("Agora executou isso!");
+    }
+    segundaFuncao();
+  }, [id]);
+
+  useEffect(() => {
+    if (peca.length > 0) {
+      db.collection("amargem")
+        .doc(peca[0].id)
+        .collection("images")
+        .orderBy("images")
+        .onSnapshot(function (snapshot) {
+          setImageList(
+            snapshot.docs.map(function (document) {
+              return { id: document.id, data: document.data() };
+            })
+          );
+        });
+    }
+  }, [peca]);
 
   const openModal = (e, par) => {
     e.preventDefault();
@@ -28,113 +65,45 @@ const AmargemSingle = () => {
   const changePic = (par) => {
     setIndexImg(par);
   };
+
   return (
     <section className="amargem_single">
       <ModalPic
-        //data={imageList}
+        data={imageList}
         indexImg={indexImg}
         closeModal={() => setIndexImg()}
         changePic={changePic}
       />
       <div className="single_top">
-        <h1>Universo</h1>
+        <h1>{peca.length > 0 ? peca[0].data.nome : ""}</h1>
         <div className="breadcrumbs">
           <p>
-            <Link to="/">Home</Link> / Universo
+            <Link to="/">Home</Link> /{" "}
+            {peca.length > 0 ? peca[0].data.nome : ""}
           </p>
         </div>
-        <img src={ImgTop} alt="" />
+        <AmargemController
+          pecaName={peca.length > 0 ? peca[0].data.nome : ""}
+        />
+        <img src={peca.length > 0 ? peca[0].data.url : ""} alt="" />
       </div>
-      <div className="testimonials">
-        <TestemonialCard />
-        <TestemonialCard />
-        <TestemonialCard />
+      <div className="testimonials about">
+        {peca.map((val) => {
+          return <TestemonialCard key={val.id} uid={val.id} />;
+        })}
       </div>
-      <div className="single_portfolio">
-        <div
-          className="single_portfolio_image"
-          onClick={(e) => openModal(e, 5)}
-        >
-          <img src={Img01} alt="" />
-        </div>
-        <div className="single_portfolio_image">
-          <img src={Img02} alt="" />
-        </div>
-        <div className="single_portfolio_image">
-          <img src={Img03} alt="" />
-        </div>
-        <div className="single_portfolio_image">
-          <img src={Img04} alt="" />
-        </div>
-        <div className="single_portfolio_image">
-          <img src={Img05} alt="" />
-        </div>
-        <div className="single_portfolio_image">
-          <img src={Img06} alt="" />
-        </div>
-        <div className="single_portfolio_image">
-          <img src={Img07} alt="" />
-        </div>
-        <div className="single_portfolio_image">
-          <img src={Img08} alt="" />
-        </div>
-        <div className="single_portfolio_image">
-          <img src={Img09} alt="" />
-        </div>
-        <div className="single_portfolio_image">
-          <img src={Img01} alt="" />
-        </div>
-        <div className="single_portfolio_image">
-          <img src={Img02} alt="" />
-        </div>
-        <div className="single_portfolio_image">
-          <img src={Img03} alt="" />
-        </div>
-        <div className="single_portfolio_image">
-          <img src={Img04} alt="" />
-        </div>
-        <div className="single_portfolio_image">
-          <img src={Img05} alt="" />
-        </div>
-        <div className="single_portfolio_image">
-          <img src={Img06} alt="" />
-        </div>
-        <div className="single_portfolio_image">
-          <img src={Img07} alt="" />
-        </div>
-        <div className="single_portfolio_image">
-          <img src={Img08} alt="" />
-        </div>
-        <div className="single_portfolio_image">
-          <img src={Img09} alt="" />
-        </div>
-        <div className="single_portfolio_image">
-          <img src={Img01} alt="" />
-        </div>
-        <div className="single_portfolio_image">
-          <img src={Img02} alt="" />
-        </div>
-        <div className="single_portfolio_image">
-          <img src={Img03} alt="" />
-        </div>
-        <div className="single_portfolio_image">
-          <img src={Img04} alt="" />
-        </div>
-        <div className="single_portfolio_image">
-          <img src={Img05} alt="" />
-        </div>
-        <div className="single_portfolio_image">
-          <img src={Img06} alt="" />
-        </div>
-        <div className="single_portfolio_image">
-          <img src={Img07} alt="" />
-        </div>
-        <div className="single_portfolio_image">
-          <img src={Img08} alt="" />
-        </div>
-        <div className="single_portfolio_image">
-          <img src={Img09} alt="" />
-        </div>
+      <div className="single_portfolio portfolio">
+        {imageList.map((val, index) => {
+          return (
+            <div
+              key={val.id}
+              className="single_portfolio_image"
+              onClick={(e) => openModal(e, index)}
+            >
+              <img src={val.data.images} alt="" />
+            </div>
+          );
+        })}
       </div>
     </section>
   );

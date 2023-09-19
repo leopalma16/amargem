@@ -61,10 +61,10 @@ const Header = () => {
         <i className="bi bi-list"></i>
       </div>
       <nav id="navOpt">
-        <a onClick={scrollToTop}>Home</a>
+        <a onClick={scrollToTop}>Topo</a>
         <a onClick={() => scrollTo("about")}>Sobre</a>
         <a onClick={() => scrollTo("portfolio")}>Portfolio</a>
-        <a onClick={() => scrollTo("contact")}>Contact</a>
+        <a onClick={() => scrollTo("contact")}>Contato</a>
         <a onClick={callOnWhats}>Whatsapp</a>
       </nav>
     </div>

@@ -1,4 +1,5 @@
 import LogoLpalmaHz from "./LogoLpalmaHz";
+import { callOnWhats } from "../functions/Functions";
 
 const Footer = () => {
   return (
@@ -15,8 +16,21 @@ const Footer = () => {
         </span>
         <span className="social">
           <i className="bi bi-whatsapp"></i>
-          <i className="bi bi-instagram"></i>
-          <i className="bi bi-facebook"></i>
+          <a
+            rel="noreferrer"
+            href="https://www.instagram.com/bobsousa/"
+            target="_blank"
+          >
+            <i className="bi bi-instagram"></i>
+          </a>
+
+          <a
+            rel="noreferrer"
+            href="https://www.facebook.com/bobsousa.hama"
+            target="_blank"
+          >
+            <i className="bi bi-facebook"></i>
+          </a>
         </span>
       </div>
       <div className="leo_contact">
